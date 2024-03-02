@@ -17,7 +17,7 @@ resource "aws_db_instance" "rds_instance" {
   username               = var.db_username
   password               = var.db_password
   db_subnet_group_name   = aws_db_subnet_group.rds.name
-  vpc_security_group_ids = "vpc-0406168dfab5463cd"
+  vpc_security_group_ids = ["vpc-0406168dfab5463cd"]
 
   tags = {
     Name = var.db_instance_identifier
