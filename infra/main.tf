@@ -5,6 +5,9 @@ provider "aws" {
 resource "aws_db_subnet_group" "rds_subnet_group" {
   name       = "rds-subnet-group"
   subnet_ids = ["subnet-06c116155ebf88256", "subnet-07ecd7f2bded15e89", "subnet-0be83c0e61177a7f5"]
+  lifecycle {
+    ignore_changes = [subnet_ids]
+  }
 }
 
 resource "aws_rds_cluster" "postgres_cluster" {
