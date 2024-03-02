@@ -5,9 +5,9 @@
     allocated_storage    = 20
     #db_subnet_group_name = "db-subnetgrp"
     engine               = "postgres"
-    engine_version       = "16"
+    engine_version       = "11.5"
     identifier           = "dsdj-postgres-db"
-    instance_class       = "db.t2.micro"
+    instance_class       = "db.t3.micro"
     password             = "mypostgrespassword"
     skip_final_snapshot  = true
     storage_encrypted    = false
