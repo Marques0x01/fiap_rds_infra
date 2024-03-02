@@ -21,10 +21,10 @@ resource "aws_rds_cluster" "postgres_cluster" {
   availability_zones = [ "us-east-1a" ]
 }
 
-resource "aws_rds_cluster_instance" "postgres_instance" {
-  count                     = 1
-  cluster_identifier        = aws_rds_cluster.postgres_cluster.id
-  instance_class            = "db.t2.micro"
-  engine                    = "postgres"
-  engine_version            = "16.2"
-}
+# resource "aws_rds_cluster_instance" "postgres_instance" {
+#   count                     = 1
+#   cluster_identifier        = aws_rds_cluster.postgres_cluster.id
+#   instance_class            = "db.t2.micro"
+#   engine                    = "postgres"
+#   engine_version            = "16.2"
+# }
