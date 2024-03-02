@@ -10,7 +10,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 resource "aws_rds_cluster" "postgres_cluster" {
   cluster_identifier        = "postgres-cluster"
   engine                    = "postgres"
-  engine_version            = "12.7"
+  engine_version            = "16.1"
   master_username           = "jamal"
   master_password           = "jamal69guloso"
   db_subnet_group_name      = aws_db_subnet_group.rds_subnet_group.name
@@ -22,5 +22,5 @@ resource "aws_rds_cluster_instance" "postgres_instance" {
   cluster_identifier        = aws_rds_cluster.postgres_cluster.id
   instance_class            = "db.t3.micro"
   engine                    = "aurora-postgresql"
-  engine_version            = "12.7"
+  engine_version            = "16.1"
 }
