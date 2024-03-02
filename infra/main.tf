@@ -1,29 +1,26 @@
 provider "aws" {
-  region = var.region
+  region = "us-west-1"
 }
 
-resource "aws_db_subnet_group" "rds" {
+resource "aws_db_subnet_group" "rds_subnet_group" {
   name       = "rds-subnet-group"
-  subnet_ids = ["subnet-0c0f8e8862add7cc4", "	subnet-06c116155ebf88256"]
+  subnet_ids = ["subnet-0c0f8e8862add7cc4", "subnet-06c116155ebf88256"]
 }
 
-resource "aws_db_instance" "rds_instance" {
-  identifier             = var.db_instance_identifier
-  allocated_storage      = var.db_allocated_storage
-  storage_type           = "gp2"
-  engine                 = "mysql"
-  engine_version         = "5.7"
-  instance_class         = var.db_instance_class
-  username               = var.db_username
-  password               = var.db_password
-  db_subnet_group_name   = aws_db_subnet_group.rds.name
-  vpc_security_group_ids = ["vpc-0406168dfab5463cd"]
-
-  tags = {
-    Name = var.db_instance_identifier
-  }
+resource "aws_rds_cluster" "aurora_cluster" {
+  cluster_identifier        = "aurora-cluster"
+  engine                    = "aurora"
+  engine_version            = "5.7.mysql_aurora.2.08.0"
+  master_username           = "admin"
+  master_password           = "your_password"
+  db_subnet_group_name      = aws_db_subnet_group.rds_subnet_group.name
+  skip_final_snapshot       = true
 }
 
-output "rds_endpoint" {
-  value = aws_db_instance.rds_instance.endpoint
+resource "aws_rds_cluster_instance" "aurora_instance" {
+  count                     = 1
+  cluster_identifier        = aws_rds_cluster.aurora_cluster.id
+  instance_class            = "db.t2.micro"
+  engine                    = "aurora"
+  engine_version            = "5.7.mysql_aurora.2.08.0"
 }
