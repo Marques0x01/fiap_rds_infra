@@ -10,12 +10,12 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 resource "aws_rds_cluster" "postgres_cluster" {
   cluster_identifier        = "postgres-cluster"
   engine                    = "postgres"
-  engine_version            = "16"
+  engine_version            = "16.2"
   master_username           = "jamal"
   master_password           = "jamal69guloso"
   db_subnet_group_name      = aws_db_subnet_group.rds_subnet_group.name
   skip_final_snapshot       = true
-  allocated_storage         = 5
+  allocated_storage         = 2
   db_cluster_instance_class = "db.t3.micro"
   availability_zones = [ "us-east-1a" ]
 }
@@ -25,5 +25,5 @@ resource "aws_rds_cluster_instance" "postgres_instance" {
   cluster_identifier        = aws_rds_cluster.postgres_cluster.id
   instance_class            = "db.t3.micro"
   engine                    = "aurora-postgresql"
-  engine_version            = "16"
+  engine_version            = "16.2"
 }
