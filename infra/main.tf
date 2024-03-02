@@ -17,6 +17,7 @@ resource "aws_rds_cluster" "postgres_cluster" {
   skip_final_snapshot       = true
   allocated_storage         = 5
   db_cluster_instance_class = "db.t3.micro"
+  availability_zones = [ "us-east-1a" ]
 }
 
 resource "aws_rds_cluster_instance" "postgres_instance" {
