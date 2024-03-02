@@ -16,14 +16,15 @@ resource "aws_rds_cluster" "postgres_cluster" {
   db_subnet_group_name      = aws_db_subnet_group.rds_subnet_group.name
   skip_final_snapshot       = true
   allocated_storage         = 2
-  db_cluster_instance_class = "db.t3.micro"
+  storage_type              = "gp2"
+  db_cluster_instance_class = "db.t2.micro"
   availability_zones = [ "us-east-1a" ]
 }
 
 resource "aws_rds_cluster_instance" "postgres_instance" {
   count                     = 1
   cluster_identifier        = aws_rds_cluster.postgres_cluster.id
-  instance_class            = "db.t3.micro"
-  engine                    = "aurora-postgresql"
+  instance_class            = "db.t2.micro"
+  engine                    = "postgres"
   engine_version            = "16.2"
 }
