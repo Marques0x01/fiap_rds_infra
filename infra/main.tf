@@ -15,6 +15,7 @@ resource "aws_rds_cluster" "postgres_cluster" {
   master_password           = "jamal69guloso"
   db_subnet_group_name      = aws_db_subnet_group.rds_subnet_group.name
   skip_final_snapshot       = true
+  allocated_storage         = 5
 }
 
 resource "aws_rds_cluster_instance" "postgres_instance" {
