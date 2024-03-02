@@ -5,6 +5,7 @@ provider "aws" {
 resource "aws_db_subnet_group" "rds_subnet_group" {
   name       = "rds-subnet-group"
   subnet_ids = ["subnet-0c0f8e8862add7cc4", "subnet-06c116155ebf88256"]
+  vpc_id = "vpc-0406168dfab5463cd"
 }
 
 resource "aws_rds_cluster" "postgres_cluster" {
