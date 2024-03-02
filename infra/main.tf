@@ -11,8 +11,8 @@ resource "aws_rds_cluster" "postgres_cluster" {
   cluster_identifier        = "postgres-cluster"
   engine                    = "aurora-postgresql"
   engine_version            = "11"
-  master_username           = "admin"
-  master_password           = "your_password"
+  master_username           = "jamal"
+  master_password           = "jamal69guloso"
   db_subnet_group_name      = aws_db_subnet_group.rds_subnet_group.name
   skip_final_snapshot       = true
 }
