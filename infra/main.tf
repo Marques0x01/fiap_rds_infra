@@ -17,10 +17,10 @@ resource "aws_rds_cluster" "postgres_cluster" {
   skip_final_snapshot       = true
 }
 
-resource "aws_rds_cluster_instance" "aurora_instance" {
+resource "aws_rds_cluster_instance" "postgres_instance" {
   count                     = 1
   cluster_identifier        = aws_rds_cluster.postgres_cluster.id
   instance_class            = "db.t2.micro"
-  engine                    = "aurora"
+  engine                    = "postgres"
   engine_version            = "5.7.mysql_aurora.2.08.0"
 }
