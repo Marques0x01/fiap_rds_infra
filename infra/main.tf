@@ -16,6 +16,7 @@ resource "aws_rds_cluster" "postgres_cluster" {
   db_subnet_group_name      = aws_db_subnet_group.rds_subnet_group.name
   skip_final_snapshot       = true
   allocated_storage         = 5
+  db_cluster_instance_class = "db.t3.micro"
 }
 
 resource "aws_rds_cluster_instance" "postgres_instance" {
