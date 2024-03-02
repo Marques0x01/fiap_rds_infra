@@ -24,5 +24,5 @@ resource "aws_rds_cluster_instance" "postgres_instance" {
   cluster_identifier        = aws_rds_cluster.postgres_cluster.id
   instance_class            = "db.t3.micro"
   engine                    = "aurora-postgresql"
-  engine_version            = "12"
+  engine_version            = "16"
 }
