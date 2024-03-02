@@ -24,6 +24,6 @@ resource "aws_rds_cluster_instance" "postgres_instance" {
   count                     = 1
   cluster_identifier        = aws_rds_cluster.postgres_cluster.id
   instance_class            = aws_rds_cluster.postgres_cluster.db_cluster_instance_class
-  engine                    = aws_rds_cluster.postgres_cluster.engine
+  engine                    = "aurora-${aws_rds_cluster.postgres_cluster.engine}ql"
   engine_version            = aws_rds_cluster.postgres_cluster.engine_version
 }
