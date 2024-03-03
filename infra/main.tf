@@ -1,5 +1,5 @@
   provider "aws" {
-    region = "sa-eat-1"
+    region = "sa-east-1"
   }
   resource "aws_db_instance" "fiap-lanches-postgres-db-instance" {
     allocated_storage    = 2
