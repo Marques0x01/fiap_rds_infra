@@ -2,7 +2,7 @@
     region = "sa-east-1"
   }
   resource "aws_db_instance" "fiap-lanches-postgres-db-instance" {
-    allocated_storage    = 2
+    allocated_storage    = 20
     engine               = "postgres"
     engine_version       = "16"
     identifier           = "fiap-lanches-postgres-db-instance"
