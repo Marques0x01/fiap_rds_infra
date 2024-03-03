@@ -1,14 +1,13 @@
   provider "aws" {
-    region = "ap-southeast-2"
+    region = "sa-eat-1"
   }
-  resource "aws_db_instance" "dsdj-postgres-db-instance" {
-    allocated_storage    = 20
-    #db_subnet_group_name = "db-subnetgrp"
+  resource "aws_db_instance" "fiap-lanches-postgres-db-instance" {
+    allocated_storage    = 2
     engine               = "postgres"
     engine_version       = "16"
-    identifier           = "dsdj-postgres-db"
+    identifier           = "fiap-lanches-postgres-db-instance"
     instance_class       = "db.t3.micro"
-    password             = "mypostgrespassword"
+    password             = "mysecretpassword"
     skip_final_snapshot  = true
     storage_encrypted    = false
     publicly_accessible    = true
