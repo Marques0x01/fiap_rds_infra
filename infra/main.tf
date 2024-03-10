@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-1"
+  region = "sa-east-1"
 }
 
 resource "aws_db_subnet_group" "rds_subnet_group" {
