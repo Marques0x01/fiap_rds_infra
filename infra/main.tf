@@ -2,15 +2,16 @@ provider "aws" {
     region = "us-east-1"
   }
   resource "aws_db_instance" "fiap-lanches-postgres-db-instance" {
-    allocated_storage    = 20
-    engine               = "postgres"
-    engine_version       = "16"
-    identifier           = "fiap-lanches-postgres-db-instance"
-    instance_class       = "db.t3.micro"
-    password             = "mysecretpassword"
-    skip_final_snapshot  = true
-    storage_encrypted    = false
-    publicly_accessible    = true
-    username             = "postgres"
-    apply_immediately = true
+    allocated_storage     = 20
+    engine                = "postgres"
+    engine_version        = "16"
+    identifier            = "fiap-lanches-postgres-db-instance"
+    instance_class        = "db.t3.micro"
+    password              = "mysecretpassword"
+    skip_final_snapshot   = true
+    storage_encrypted     = false
+    publicly_accessible   = true
+    username              = "postgres"
+    apply_immediately     = true
+    vpc_id                = "vpc-0fef0d0222f7e9529"
   }
