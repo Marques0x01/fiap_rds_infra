@@ -13,5 +13,6 @@ provider "aws" {
     publicly_accessible   = true
     username              = "postgres"
     apply_immediately     = true
-    vpc_id                = "vpc-0fef0d0222f7e9529"
+    port = 5432
+    vpc_security_group_ids = ["sg-0f822ea11cc88f58d"]
   }
