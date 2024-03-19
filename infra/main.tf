@@ -21,7 +21,6 @@ resource "aws_db_instance" "fiap-lanches-postgres-db-instance" {
 }
 
 resource "aws_security_group" "allow_tls" {
-  depends_on = [ module.vpc ]
   name   = "allow_tls"
   vpc_id = "vpc-068207d590edc3748"
   tags = {
