@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "sa-east-1"
+  region = "us-east-1"
 }
 
 resource "aws_db_instance" "fiap-lanches-postgres-db-instance" {
