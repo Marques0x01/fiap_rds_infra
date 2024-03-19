@@ -16,20 +16,14 @@ resource "aws_db_instance" "fiap-lanches-postgres-db-instance" {
   apply_immediately      = true
   db_subnet_group_name   = "fiaplanches"
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
-}
 
-module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "5.6.0"
-
-  name = "fiap-lanches-vpc"
-  create_vpc = false
+  depends_on = [ aws_security_group.allow_tls ]
 }
 
 resource "aws_security_group" "allow_tls" {
   depends_on = [ module.vpc ]
   name   = "allow_tls"
-  vpc_id = module.vpc.default_vpc_id
+  vpc_id = "vpc-068207d590edc3748"
   tags = {
     Name = "allow_tls"
   }
